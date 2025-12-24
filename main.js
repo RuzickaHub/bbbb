@@ -488,12 +488,22 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
-// Start button
-document.getElementById('start-btn').addEventListener('click', () => {
-    console.log('Start button clicked');
-    document.getElementById('start-screen').style.display = 'none';
-    document.getElementById('ui').style.display = 'block';
-    init();
+// Start button event listener
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, adding event listener...');
+    
+    const startBtn = document.getElementById('start-btn');
+    if (startBtn) {
+        startBtn.addEventListener('click', () => {
+            console.log('Start button clicked');
+            document.getElementById('start-screen').style.display = 'none';
+            document.getElementById('ui').style.display = 'block';
+            init();
+        });
+        console.log('Event listener added');
+    } else {
+        console.error('Start button not found!');
+    }
 });
 
 console.log('Script loaded successfully');
