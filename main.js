@@ -506,4 +506,11 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    document.querySelector('button[type="submit"]').click();
+  }
+});
+
 console.log('Script loaded successfully');
