@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Byldr Engine - Opraveno</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="vignette"></div>
+
+    <div id="start-screen" class="overlay">
+        <h1 style="letter-spacing: 8px; font-weight: 200;">BYLDR</h1>
+        <p style="opacity: 0.5; font-size: 11px; margin-bottom: 30px;">V0.3.6 - FIXED</p>
+        <button id="start-btn" class="tool-btn" style="width: 160px; height: 48px; background: var(--accent); color: #fff; font-weight: 600; border-radius: 24px; font-size: 14px;">SPUSTIT</button>
+    </div>
+
+    <div id="inventory-panel">
+        <div class="inv-header">
+            <div class="inv-title">INVENTÁŘ</div>
+            <div class="close-inv" id="close-inventory">✕</div>
+        </div>
+        
+        <div class="inv-content">
+            <div style="font-size: 11px; text-transform: uppercase; opacity: 0.4; margin-bottom: 12px; letter-spacing: 1px;">Typy kostek</div>
+            <div class="brick-grid" id="brick-selector"></div>
+
+            <div style="font-size: 11px; text-transform: uppercase; opacity: 0.4; margin: 15px 0 12px; letter-spacing: 1px;">Barva dílku</div>
+            <div class="color-row" id="color-selector"></div>
+        </div>
+    </div>
+
+    <div id="ui">
+        <div class="count-label">Dílky: <span id="count">0</span></div>
+
+        <div class="top-left-bar">
+            <div class="panel-row">
+                <button id="btn-undo" class="tool-btn" title="Zpět">
+                    <svg viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
+                </button>
+                <button id="btn-redo" class="tool-btn" title="Vpřed">
+                    <svg viewBox="0 0 24 24"><path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.06-5.5 7.6-5.5 1.96 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="top-right-bar">
+            <div class="panel-row">
+                <button id="btn-open-inventory" class="tool-btn" title="Inventář">
+                    <svg viewBox="0 0 24 24"><path d="M4,11H7V8H4V11M4,16H7V13H4V16M4,21H7V18H4V21M9,11H12V8H9V11M9,16H12V13H9V16M9,21H12V18H9V21M14,11H17V8H14V11M14,16H17V13H14V16M14,21H17V18H14V21M19,11H22V8H19V11M19,16H22V13H19V16M19,21H22V18H19V21Z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="right-controls">
+            <div class="panel-row" style="flex-direction: column;">
+                <button id="mode-build" class="tool-btn active">
+                    <svg viewBox="0 0 24 24"><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15M5,15.91L11,19.29V12.58L5,9.21V15.91M19,15.91V9.21L13,12.58V19.29L19,15.91Z"/></svg>
+                </button>
+                <button id="mode-erase" class="tool-btn erase-mode">
+                    <svg viewBox="0 0 24 24"><path d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19V4M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="crosshair"></div>
+        <div id="joy-container"></div>
+        <div id="jump-wrapper">
+            <button id="jump-btn" class="jump-btn">
+                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.10.1/nipplejs.min.js"></script>
+    <script src="brick-model.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
