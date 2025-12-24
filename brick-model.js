@@ -43,8 +43,3 @@ function createBrick3005(color, isGhost = false, brickType = { w: 1, l: 1, type:
 
     return group;
 }
-
-// Export for Node.js/CommonJS if needed
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { createBrick3005 };
-}
